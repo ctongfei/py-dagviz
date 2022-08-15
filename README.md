@@ -1,4 +1,4 @@
-# py-dagviz
+# py-dagviz [![PyPI version](https://badge.fury.io/py/py-dagviz.svg)](https://badge.fury.io/py/py-dagviz)
 This package creates a text rendering of a directed acyclic graph (DAG) for visualization purposes in a terminal.
 It contains a single function `visualize_dag` that takes a [`networkx.DiGraph`](https://networkx.org/documentation/stable/reference/classes/digraph.html) object from the [networkx](https://networkx.org/) package.
 ```
