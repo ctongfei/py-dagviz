@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = [
     { name="Tongfei Chen", email="tongfei@pm.me" }
 ]
-description = "CLI visualizer of directed acyclic graphs"
+description = "Terminal visualizer of directed acyclic graphs"
 license = { file="LICENSE" }
 readme = "README.md"
 requires-python = ">=3.7"

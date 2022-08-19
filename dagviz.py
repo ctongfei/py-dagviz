@@ -41,8 +41,8 @@ def visualize_dag(g: nx.DiGraph, round_angle: bool = False) -> str:
         successors = sorted(g.successors(u), key=lambda v: node_to_row[v])
         if len(successors) == 0:
             continue
-        last_successor_row = node_to_row[successors[-1]]
-        for j in range(i + 1, last_successor_row):
+        l = node_to_row[successors[-1]]
+        for j in range(i + 1, l):
             a[j][indents[i] * 2] = u'│'
         for v in successors[:-1]:
             j = node_to_row[v]
@@ -51,11 +51,11 @@ def visualize_dag(g: nx.DiGraph, round_angle: bool = False) -> str:
                 else u'├'
             for k in range(indents[i] * 2 + 1, indents[j] * 2):
                 a[j][k] = u'─'
-        a[last_successor_row][indents[i] * 2] = u'┴' \
-            if a[last_successor_row][indents[i] * 2 - 1] == u'─' \
+        a[l][indents[i] * 2] = u'┴' \
+            if indents[i] > 0 and a[l][indents[i] * 2 - 1] == u'─' \
             else (u'╰' if round_angle else u'└')
-        for k in range(indents[i] * 2 + 1, indents[last_successor_row] * 2):
-            a[last_successor_row][k] = u'─'
+        for k in range(indents[i] * 2 + 1, indents[l] * 2):
+            a[l][k] = u'─'
 
     lines: List[str] = [l.tounicode() + "• " + str(i).replace('\n', ' ') for l, i in zip(a, rows)]
     return '\n'.join(lines)
